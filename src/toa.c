@@ -819,6 +819,7 @@ hook_toa_functions(void)
 
 #ifdef TOA_IPV6_ENABLE
     if (0 != make_rw((unsigned long )inet6_stream_ops_p))
+        return 1;
     inet6_stream_ops_p->getname = inet6_getname_toa;
     TOA_INFO("CPU [%u] hooked inet6_getname <%p> --> <%p>\n",
         smp_processor_id(), inet6_getname, inet6_stream_ops_p->getname);
